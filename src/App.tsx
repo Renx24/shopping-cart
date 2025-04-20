@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import NoPage from "./pages/NoPage";
-import "./App.css";
 
 function App() {
   const [items, setItems] = useState<[]>([]);

@@ -5,18 +5,27 @@ import { Link, Outlet } from "react-router-dom";
 const Layout: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="bg-gray-900 text-white px-6 py-4 flex justify-between items-center">
+      <header
+        className="text-white px-6 py-4 flex justify-between items-center bg-white shadow-md"
+        style={{ position: "sticky", top: 0, zIndex: 10 }}
+      >
         <Link
           to="/"
           className="hover:text-gray-300 transition text-xl font-bold"
         >
-          Genericc
+          <img src="./src/assets/logo.png" alt="Logo" className="h-12" />
         </Link>
         <nav className="space-x-4">
-          <Link to="/products" className="hover:text-gray-300 transition">
+          <Link
+            to="/products"
+            className="hover:text-gray-400 text-gray-800 transition"
+          >
             Products
           </Link>
-          <Link to="/cart" className="hover:text-gray-300 transition">
+          <Link
+            to="/cart"
+            className="hover:text-gray-400 text-gray-800 transition"
+          >
             Cart
           </Link>
         </nav>
@@ -27,7 +36,7 @@ const Layout: React.FC = () => {
       </main>
 
       <footer className="bg-gray-200 text-center py-4 text-sm text-gray-600">
-        © {new Date().getFullYear()} Genericc. All rights reserved.
+        © {new Date().getFullYear()} MyShop. All rights reserved.
       </footer>
     </div>
   );

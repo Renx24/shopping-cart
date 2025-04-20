@@ -36,7 +36,6 @@ export default function Products({ products }: ProductsProps) {
     console.log("Added to cart:", product.title);
     setPopup({ visible: true, product });
 
-    // Automatically hide the popup after 3 seconds
     setTimeout(() => setPopup({ visible: false }), 3000);
   }
 
@@ -128,7 +127,7 @@ export default function Products({ products }: ProductsProps) {
             width: "300px",
           }}
         >
-          <Callout.Text>
+          <Callout.Text size="3" weight="medium">
             Added <strong>{popup.product.title}</strong> to the cart!
           </Callout.Text>
         </Callout.Root>
