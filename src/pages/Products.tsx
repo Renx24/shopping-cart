@@ -25,15 +25,17 @@ type Product = {
 
 type ProductsProps = {
   products: Product[];
+  cart: Product[];
+  addToCart: (product: Product) => void;
 };
 
-export default function Products({ products }: ProductsProps) {
+export default function Products({ products, cart, addToCart }: ProductsProps) {
   const [popup, setPopup] = useState<{ visible: boolean; product?: Product }>({
     visible: false,
   });
 
   function handleAddToCart(product: Product) {
-    console.log("Added to cart:", product.title);
+    addToCart(product); // Use the function passed from App
     setPopup({ visible: true, product });
 
     setTimeout(() => setPopup({ visible: false }), 3000);
@@ -108,7 +110,9 @@ export default function Products({ products }: ProductsProps) {
                   (e.currentTarget.style.backgroundColor = "crimson")
                 }
               >
-                Add to cart
+                {cart.some((cartItem) => cartItem.id === item.id)
+                  ? "Remove from cart"
+                  : "Add to cart"}
               </Button>
             </Box>
           </Card>
@@ -128,7 +132,9 @@ export default function Products({ products }: ProductsProps) {
           }}
         >
           <Callout.Text size="3" weight="medium">
-            Added <strong>{popup.product.title}</strong> to the cart!
+            {cart.some((cartItem) => cartItem.id === popup.product?.id)
+              ? `Added ${popup.product.title} to the cart!`
+              : `Removed ${popup.product.title} from the cart!`}
           </Callout.Text>
         </Callout.Root>
       )}
