@@ -89,26 +89,18 @@ export default function Products({ products, cart, addToCart }: ProductsProps) {
               {item.title}
             </Heading>
             <Box mx="1" mt="1" style={{ textAlign: "center" }}>
-              <Text size="4" weight="bold" color="crimson">
+              <Text size="4" weight="bold" color="orange">
                 ${item.price.toFixed(2)}
               </Text>
               <Separator my="2" mx="auto" style={{ width: "80%" }} />
               <Button
                 onClick={() => handleAddToCart(item)}
                 style={{
-                  backgroundColor: "crimson",
                   color: "white",
-                  borderRadius: "8px",
                   padding: "8px 16px",
                   cursor: "pointer",
                   transition: "background-color 0.3s",
                 }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.backgroundColor = "darkred")
-                }
-                onMouseLeave={(e) =>
-                  (e.currentTarget.style.backgroundColor = "crimson")
-                }
               >
                 {cart.some((cartItem) => cartItem.id === item.id)
                   ? "Remove from cart"
@@ -123,7 +115,6 @@ export default function Products({ products, cart, addToCart }: ProductsProps) {
           variant="soft"
           highContrast
           style={{
-            backgroundColor: "crimson",
             position: "fixed",
             bottom: "20px",
             right: "20px",
@@ -132,9 +123,17 @@ export default function Products({ products, cart, addToCart }: ProductsProps) {
           }}
         >
           <Callout.Text size="3" weight="medium">
-            {cart.some((cartItem) => cartItem.id === popup.product?.id)
-              ? `Added ${popup.product.title} to the cart!`
-              : `Removed ${popup.product.title} from the cart!`}
+            {cart.some((cartItem) => cartItem.id === popup.product?.id) ? (
+              <>
+                Added <Text weight="bold">{popup.product.title}</Text> to the
+                cart!
+              </>
+            ) : (
+              <>
+                Removed <Text weight="bold">{popup.product.title}</Text> from
+                the cart!
+              </>
+            )}
           </Callout.Text>
         </Callout.Root>
       )}

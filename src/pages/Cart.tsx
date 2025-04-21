@@ -63,13 +63,11 @@ export default function Cart({ cart, removeFromCart }: CartProps) {
                     width: "70px",
                   }}
                 />
-                <Flex mt="2" direction="column" gap="1" style={{ flex: 1 }}>
+                <Flex m="2" direction="column" gap="1" style={{ flex: 1 }}>
                   <Text size="4" weight="bold">
                     {item.title}
                   </Text>
-                  <Text size="3" color="gray">
-                    ${item.price.toFixed(2)}
-                  </Text>
+                  <Text size="3">${item.price.toFixed(2)}</Text>
                 </Flex>
               </Card>
             ))}
