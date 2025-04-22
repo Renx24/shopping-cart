@@ -4,7 +4,10 @@ import { Link, Outlet } from "react-router-dom";
 
 const Layout: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ height: "100vh", width: "100vw" }}
+    >
       <header
         className="text-white px-6 py-4 flex justify-between items-center bg-white shadow-md"
         style={{ position: "sticky", top: 0, zIndex: 10 }}

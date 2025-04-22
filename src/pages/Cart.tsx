@@ -61,6 +61,7 @@ export default function Cart({ cart, removeFromCart }: CartProps) {
                     objectFit: "scale-down",
                     height: "70px",
                     width: "70px",
+                    margin: "0 5px",
                   }}
                 />
                 <Flex m="2" direction="column" gap="1" style={{ flex: 1 }}>

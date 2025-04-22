@@ -4,22 +4,23 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <Section
-      p="4"
       style={{
-        minHeight: "100vh", // Ensure the section takes up the full viewport height
+        height: "100%",
         display: "flex",
-        alignItems: "center", // Center content vertically
-        justifyContent: "center", // Center content horizontally
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "0",
       }}
     >
       <Flex
         gap="4"
-        justify="center"
+        justify="between"
         align="center"
-        direction={{ initial: "column", md: "row" }} // Responsive direction
+        direction={{ initial: "column", md: "row" }}
         style={{
           width: "100%",
-          maxWidth: "1200px", // Limit the overall width for larger screens
+          height: "90%",
+          maxWidth: "1800px",
         }}
       >
         <Flex
@@ -30,7 +31,7 @@ export default function Home() {
             width: "100%",
             maxWidth: "500px",
             textAlign: "center",
-            padding: "16px", // Add padding to prevent content from touching edges
+            padding: "16px",
           }}
         >
           <Text style={{ fontSize: "3rem", color: "#ff6a00" }} weight="bold">
@@ -68,8 +69,8 @@ export default function Home() {
             objectFit: "cover",
             objectPosition: "top",
             width: "100%",
-            maxWidth: "500px", // Limit image width for smaller screens
-            maxHeight: "600px", // Limit image height for smaller screens
+            maxWidth: "1000px",
+            maxHeight: "1000px",
             height: "auto",
             borderRadius: "8px",
           }}
