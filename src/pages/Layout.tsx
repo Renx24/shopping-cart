@@ -1,6 +1,7 @@
 // pages/Layout.tsx
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
+import MyShopLogo from "../assets/logo.png";
 
 const Layout: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const Layout: React.FC = () => {
           to="/"
           className="hover:text-gray-300 transition text-xl font-bold"
         >
-          <img src="./src/assets/logo.png" alt="Logo" className="h-12" />
+          <img src={MyShopLogo} alt="Logo" className="h-12" />
         </Link>
         <nav className="space-x-4">
           <Link
