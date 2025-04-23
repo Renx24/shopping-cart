@@ -1,0 +1,35 @@
+name: Deploy Shopping Cart via Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Copy files to server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: rene
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          source: "."
+          target: "/home/rene/shopping-cart-temp"
+
+      - name: SSH into server and deploy Docker container
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: rene
+          key: ${{ secrets.DROPLET_SSH_KEY }}
+          script: |
+            cd shopping-cart-temp
+            docker build -t shopping-cart .
+            docker stop shopping-cart || true
+            docker rm shopping-cart || true
+            docker run -d --name shopping-cart -p 3005:80 shopping-cart
