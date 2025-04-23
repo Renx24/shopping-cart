@@ -51,7 +51,7 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/shopping-cart">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
