@@ -11,7 +11,7 @@ const Layout: React.FC = () => {
     >
       <header
         className="text-white px-6 py-4 flex justify-between items-center bg-white shadow-md"
-        style={{ position: "sticky", top: 0, zIndex: 10 }}
+        style={{ position: "sticky", top: 0, zIndex: 10, width: "100%" }}
       >
         <Link
           to="/"
